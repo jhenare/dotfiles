@@ -10,46 +10,29 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
-
+"----------------------------Git ----------- -------------------
 Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree.git'
+
+"------------------- Code Project Navigation -------------------
+Plugin 'scrooloose/nerdtree.git'            " Project and file navigation
+Plugin 'majutsushi/tagbar'                  " Class/module browser
+"-------------------------- Python -----------------------------
+
+
+"--------------------------- other ----------------------------
+Plugin 'vim-airline/vim-airline'                        " Lean & Mean status/tabline fro fim
+Plugin 'vim-airline/vim-airline-themes'                 " Themes for vim
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
+
 
 syntax on
 colorscheme monokai
 set number
 set relativenumber
-
 set smartindent
 set tabstop=4
 set shiftwidth=4
@@ -63,7 +46,6 @@ set expandtab
 :inoremap ( ()<Esc>:let leavechar=")"<CR>i
 :inoremap [ []<Esc>:let leavechar="]"<CR>i
 :imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
-
 inoremap { {<CR>}<Esc>ko
 
 "inoremap {<cr> {<cr}<c-o><s-o>
@@ -88,5 +70,10 @@ map <silent> <C-n> :NERDTreeFocus<CR>
 " Default to tree mode
 let g:netrw_liststyle = 3
 
+" AIRLINE "
+let g:airline_theme='deus'
 
-
+"------------------- Code Project Navigation -------------------
+" Tag bar "
+let g:airline#extensions#tagbar#enabled = 1
+nmap <F8> :TagbarToggle<CR>
