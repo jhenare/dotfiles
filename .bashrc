@@ -20,5 +20,5 @@ alias 3="cd ../../../"
 alias 4="cd ../../../../"
 
 alias ea="vim ~/.bashrc"
-
+alias ev="vim ~/.vimrc"
 
