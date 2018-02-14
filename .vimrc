@@ -52,6 +52,8 @@ inoremap { {<CR>}<Esc>ko
 "inoremap [<cr> [<cr]<c-o><s-o>
 "inoremap (<cr> (<cr)<c-o><s-o>
 
+"===Misc hotkeys===
+set clipboard=unnamedplus "Yank inot global clipboard
 
 "Toggle NERDTree
 silent! nmap <C-i> :NERDTreeToggle<CR>
@@ -77,3 +79,9 @@ let g:airline_theme='deus'
 " Tag bar "
 let g:airline#extensions#tagbar#enabled = 1
 nmap <F8> :TagbarToggle<CR>
+
+"--------------------Python-------------------------------------
+nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+
+
+
